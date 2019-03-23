@@ -140,6 +140,7 @@
     <ClInclude Include="Code\Sequence\Title\Manager.h" />
     <ClInclude Include="Code\Time\Manager.h" />
     <ClInclude Include="Code\Tool\SingletonTemplate.h" />
+    <ClInclude Include="Code\Tool\Vector2.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
