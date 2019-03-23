@@ -124,6 +124,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="Code\Input\Key.cpp" />
+    <ClCompile Include="Code\Input\Mouse.cpp" />
     <ClCompile Include="Code\Main.cpp" />
     <ClCompile Include="Code\Input\Manager.cpp" />
     <ClCompile Include="Code\Sequence\Manager.cpp" />
@@ -134,12 +135,14 @@
   <ItemGroup>
     <ClInclude Include="Code\Input\Key.h" />
     <ClInclude Include="Code\Input\Manager.h" />
+    <ClInclude Include="Code\Input\Mouse.h" />
     <ClInclude Include="Code\Sequence\Base.h" />
     <ClInclude Include="Code\Sequence\Manager.h" />
     <ClInclude Include="Code\Sequence\State.h" />
     <ClInclude Include="Code\Sequence\Title\Manager.h" />
     <ClInclude Include="Code\Time\Manager.h" />
     <ClInclude Include="Code\Tool\SingletonTemplate.h" />
+    <ClInclude Include="Code\Tool\Vector2.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
