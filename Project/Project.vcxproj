@@ -149,6 +149,7 @@
     <ClInclude Include="Code\Sequence\Game\Play\Manager.h" />
     <ClInclude Include="Code\Sequence\Game\Result\Manager.h" />
     <ClInclude Include="Code\Sequence\Game\State.h" />
+    <ClInclude Include="Code\Sequence\Game\Unit\Base.h" />
     <ClInclude Include="Code\Sequence\Manager.h" />
     <ClInclude Include="Code\Sequence\State.h" />
     <ClInclude Include="Code\Sequence\Title\Manager.h" />

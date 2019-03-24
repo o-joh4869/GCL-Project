@@ -107,5 +107,8 @@
     <ClInclude Include="Code\Sequence\Game\Map\Manager.h">
       <Filter>ヘッダー ファイル</Filter>
     </ClInclude>
+    <ClInclude Include="Code\Sequence\Game\Unit\Base.h">
+      <Filter>ヘッダー ファイル</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>
