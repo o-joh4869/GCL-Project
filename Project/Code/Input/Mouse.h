@@ -48,7 +48,7 @@ namespace Input {
 		}
 
 		// 関数オブジェクトの条件を満たす座標で、buttonTypeで指定したマウスのボタンがbuttonStateに指定した状態変化を何度したか取得する
-		int getMouseButtonState(std::function<bool(const Vector2<int>)> func, int buttonType = MOUSE_INPUT_LEFT, int buttonState = MOUSE_INPUT_LOG_DOWN) const;
+		int getButtonChangeCount(std::function<bool(const Vector2<int>)> func, int buttonType = MOUSE_INPUT_LEFT, int buttonState = MOUSE_INPUT_LOG_DOWN) const;
 
 	private:
 		static Vector2<int> mPoint;

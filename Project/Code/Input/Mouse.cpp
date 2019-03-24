@@ -28,7 +28,7 @@ namespace Input {
 		return (SetMousePoint(point.x, point.y));
 	}
 	
-	int Mouse::getMouseButtonState(std::function<bool(const Vector2<int>)> func, int buttonType, int buttonState) const {
+	int Mouse::getButtonChangeCount(std::function<bool(const Vector2<int>)> func, int buttonType, int buttonState) const {
 		int buttonCnt = 0;
 		for (unsigned int i = 0; i < mButtonLog.size(); i++) {
 			if (mButtonLog[i].Button == buttonType && mButtonLog[i].LogType == buttonState && func(mButtonLog[i].Pos)) {
