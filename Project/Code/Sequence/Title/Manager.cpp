@@ -1,5 +1,7 @@
 #include"Manager.h"
 #include"../State.h"
+#include"../Game/Manager.h"
+#include"../../Input/Key.h"
 #include<DxLib.h>
 
 namespace Sequence {
@@ -21,7 +23,8 @@ namespace Sequence {
 			DrawGraph(0, 0, mState->backPicHandle, FALSE);
 			DrawGraph(0, 0, mLogoHandle, TRUE);
 
-			return this;
+			if (Input::gKey[KEY_INPUT_SPACE] == -1) return (new Sequence::Game::Manager(mState));
+			else return this;
 		}
 	}
 }
