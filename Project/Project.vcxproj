@@ -128,6 +128,7 @@
     <ClCompile Include="Code\Main.cpp" />
     <ClCompile Include="Code\Input\Manager.cpp" />
     <ClCompile Include="Code\Sequence\Game\Manager.cpp" />
+    <ClCompile Include="Code\Sequence\Game\Map\Manager.cpp" />
     <ClCompile Include="Code\Sequence\Game\Play\Manager.cpp" />
     <ClCompile Include="Code\Sequence\Game\Result\Manager.cpp" />
     <ClCompile Include="Code\Sequence\Game\State.cpp" />
@@ -143,6 +144,8 @@
     <ClInclude Include="Code\Sequence\Base.h" />
     <ClInclude Include="Code\Sequence\Game\Base.h" />
     <ClInclude Include="Code\Sequence\Game\Manager.h" />
+    <ClInclude Include="Code\Sequence\Game\Map\Chip.h" />
+    <ClInclude Include="Code\Sequence\Game\Map\Manager.h" />
     <ClInclude Include="Code\Sequence\Game\Play\Manager.h" />
     <ClInclude Include="Code\Sequence\Game\Result\Manager.h" />
     <ClInclude Include="Code\Sequence\Game\State.h" />
