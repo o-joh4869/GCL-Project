@@ -1,14 +1,14 @@
 #pragma once
 #include"Chip.h"
 
+
 namespace Sequence { namespace Game { namespace Map {
 
-	//â‘Î‚Éƒ†ƒjƒbƒg‚ª’Ê‚ê‚È‚¢•Ç
-	class Wall : public Chip {
+	class Grass : public Chip {
 	public:
-		Wall();
+		Grass() : Chip() {}
 		virtual void update() override {}
-		~Wall() = default;
-
+		~Grass() = default;
 	};
+
 }}}

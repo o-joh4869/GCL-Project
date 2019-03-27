@@ -7,7 +7,7 @@ namespace Sequence { namespace Game { namespace Map {
 	{
 		SetDrawScreen(grHandle);
 		ClearDrawScreen();
-		DrawBox(4, 4, 60, 60, 0x0000ff, TRUE);
+		DrawBox(4, 4, 60, 60, 0x00ff00, TRUE);
 		SetDrawScreen(DX_SCREEN_BACK);
 	}
 

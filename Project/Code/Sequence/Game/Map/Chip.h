@@ -8,23 +8,24 @@ namespace Sequence { namespace Game { namespace Map {
 
 	class Chip {
 	protected:
-		Chip(bool passFlag = true) :
+		Chip(bool passFlag = true, const int &passCost = 1) :
 			mPassFlag(passFlag),
-			grHandle(MakeScreen(64, 64, TRUE))
+			grHandle(MakeScreen(64, 64, TRUE)),
+			mPassCost(passCost)
 		{
 		}
 	public:
-		virtual void update() {} //動くもの等あればここで記述
-		virtual void draw() const {} //動いた結果をgrHandleに反映させる
+		virtual void update() {} //動くもの等あればここで記述＆grHandleの更新
 		virtual ~Chip() {
 			DeleteGraph(grHandle);
 		}
 
 	private:
 		bool mPassFlag; //Unitが通れるかどうか
+		int mPassCost; //Unitが通るときに消費するBP
 	public:
 		const int grHandle; //64*64のグラフィック drawはこれに描画する ClearDrawScreenやSetDrawScreenは自分で呼ぶこと 裏画面に戻すこと
-		bool getPassFlag() {
+		bool getPassFlag() const {
 			return mPassFlag;
 		}
 		

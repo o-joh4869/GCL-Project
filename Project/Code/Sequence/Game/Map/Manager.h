@@ -12,7 +12,10 @@ namespace Map {
 		Manager &operator=(const Manager&) = delete;
 		~Manager();
 	public:
+		//各Chipのupdate関数を一回ずつ呼ぶ Unitとかのupdateの後がいいかも
 		void update();
+		
+		//マップを描画する
 		void draw() const;
 		
 	private:
