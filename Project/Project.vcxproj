@@ -129,11 +129,11 @@
     <ClCompile Include="Code\Input\Manager.cpp" />
     <ClCompile Include="Code\Sequence\Game\Manager.cpp" />
     <ClCompile Include="Code\Sequence\Game\Map\Manager.cpp" />
-    <ClCompile Include="Code\Sequence\Game\Map\Wall.cpp" />
     <ClCompile Include="Code\Sequence\Game\Play\Manager.cpp" />
     <ClCompile Include="Code\Sequence\Game\Result\Manager.cpp" />
     <ClCompile Include="Code\Sequence\Game\State.cpp" />
     <ClCompile Include="Code\Sequence\Game\Unit\Behvior.cpp" />
+    <ClCompile Include="Code\Sequence\Game\Unit\Manager.cpp" />
     <ClCompile Include="Code\Sequence\Game\Unit\Sample.cpp" />
     <ClCompile Include="Code\Sequence\Manager.cpp" />
     <ClCompile Include="Code\Sequence\State.cpp" />
@@ -156,6 +156,7 @@
     <ClInclude Include="Code\Sequence\Game\State.h" />
     <ClInclude Include="Code\Sequence\Game\Unit\Base.h" />
     <ClInclude Include="Code\Sequence\Game\Unit\Behavior.h" />
+    <ClInclude Include="Code\Sequence\Game\Unit\Manager.h" />
     <ClInclude Include="Code\Sequence\Game\Unit\Sample.h" />
     <ClInclude Include="Code\Sequence\Manager.h" />
     <ClInclude Include="Code\Sequence\State.h" />

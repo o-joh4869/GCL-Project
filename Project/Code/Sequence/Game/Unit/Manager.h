@@ -3,8 +3,10 @@
 
 namespace Sequence { namespace Game {
 	class State;
-namespace Map {
-	class Chip;
+namespace Unit {
+
+	class Base;
+
 	class Manager {
 	private:
 		Manager();
@@ -12,16 +14,14 @@ namespace Map {
 		Manager &operator=(const Manager&) = delete;
 		~Manager();
 	public:
-		//各Chipのupdate関数を一回ずつ呼ぶ Unitとかのupdateの後がいいかも
 		void update();
-
 		void draw() const;
-		void redraw() const; //各Chipのグラフィックをこのクラスのグラフィックに反映
-		
+		void redraw();
+
 	private:
-		std::vector<std::vector<Chip*>> mChip;
-		int mGrHandle; //マップ全体を描画するグラフィックへのハンドル
-		
+		std::vector<Base*> unit;
+
 		friend State;
 	};
+
 }}}

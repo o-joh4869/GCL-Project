@@ -18,7 +18,9 @@ namespace Sequence { namespace Game { namespace Unit {
 		const int mIniBP; //初期BP
 
 	public:
-		virtual void update() {}
+		int grHandle; //これを描画する
+
+		virtual bool update() { return false; } //MapChip同様モーションを付けるときはここに記述
 	};
 
 }}}

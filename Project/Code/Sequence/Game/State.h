@@ -3,6 +3,11 @@ namespace Sequence {
 	class State;
 namespace Game {
 	class Manager;
+	namespace Map {
+		class Manager;
+	}
+
+
 	class State {
 	private:
 		State(Sequence::State *state);
@@ -11,7 +16,7 @@ namespace Game {
 		~State();
 	public:
 		Sequence::State *state; //Sequence::Manager::mState‚Æ“¯‚¶
-
+		Map::Manager *map;
 		friend Manager;
 	};
 }}

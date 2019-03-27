@@ -1,10 +1,12 @@
 #include"Manager.h"
 #include"Grass.h"
 #include"Wall.h"
+#include<DxLib.h>
 
 namespace Sequence { namespace Game { namespace Map {
 
-	Manager::Manager() {
+	Manager::Manager()
+	{
 
 		//‰¼ƒTƒCƒYÝ’è
 		const int width = 10;
@@ -21,23 +23,38 @@ namespace Sequence { namespace Game { namespace Map {
 			}
 		}
 
-		//‰¡640
+		mGrHandle = MakeScreen(32 * width, 32 * hight);
+
+		redraw();
 
 	}
 
 	Manager::~Manager() {
-
+		DeleteGraph(mGrHandle);
 	}
 
 	void Manager::update() {
+		bool flag = false;
 		for (auto &i : mChip) {
 			for (auto &j : i) {
-				j->update();
+				flag = flag || j->update();
 			}
 		}
+		if (flag) redraw();
 	}
 
 	void Manager::draw() const {
-
+		DrawGraph(10, 10, mGrHandle, FALSE); //‰¼
 	}
+
+	void Manager::redraw() const {
+		SetDrawScreen(mGrHandle);
+		for (int i = 0; i < mChip.size(); i++) {
+			for (int j = 0; j < mChip[0].size(); j++) {
+				DrawGraph(i * 32, j * 32, mChip[i][j]->grHandle, FALSE);
+			}
+		}
+		SetDrawScreen(DX_SCREEN_BACK);
+	}
+
 }}}

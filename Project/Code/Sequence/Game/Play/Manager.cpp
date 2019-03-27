@@ -5,6 +5,8 @@
 #include"../../../Input/Key.h"
 #include<DxLib.h>
 
+#include"../Map/Manager.h"
+
 namespace Sequence { namespace Game { namespace Play {
 
 	Manager::Manager(Sequence::Game::State *state) :
@@ -16,9 +18,9 @@ namespace Sequence { namespace Game { namespace Play {
 	}
 	Sequence::Base *Manager::update() {
 
-		DrawFormatString(0, 0, 0xffffff, "Play");
-		if (Input::gKey[KEY_INPUT_BACK] == -1) return (new Sequence::Title::Manager(mState->state));
-		else if (Input::gKey[KEY_INPUT_SPACE] == -1) return (new Game::Result::Manager(mState));
-		else return this;
+		mState->map->update();
+		mState->map->draw();
+
+		return this;
 	}
 }}}

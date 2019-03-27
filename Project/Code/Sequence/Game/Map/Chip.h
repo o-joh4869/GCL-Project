@@ -10,12 +10,12 @@ namespace Sequence { namespace Game { namespace Map {
 	protected:
 		Chip(bool passFlag = true, const int &passCost = 1) :
 			mPassFlag(passFlag),
-			grHandle(MakeScreen(64, 64, TRUE)),
+			grHandle(MakeScreen(32, 32, TRUE)),
 			mPassCost(passCost)
 		{
 		}
 	public:
-		virtual void update() {} //動くもの等あればここで記述＆grHandleの更新
+		virtual bool update() { return false; } //動くもの等あればここで記述＆grHandleの更新 grHandleの中身を書き換えたらtrueを返す
 		virtual ~Chip() {
 			DeleteGraph(grHandle);
 		}

@@ -7,7 +7,7 @@ namespace Sequence { namespace Game { namespace Unit {
 		Base(2, 30)
 	{}
 
-	void Sample::update() {
-
+	bool Sample::update() {
+		return false;
 	}
 }}}
