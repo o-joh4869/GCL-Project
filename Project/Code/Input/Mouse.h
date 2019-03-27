@@ -56,7 +56,7 @@ namespace Input {
 		}
 
 		// 左上 p1 、右下 p2 の矩形の中にマウス座標が含まれているかを返す
-		bool isInside(Vector2<int> p1, Vector2<int> p2) const {
+		bool isMouseOver(Vector2<int> p1, Vector2<int> p2) const {
 			return p1.x <= mPoint.x && mPoint.x < p2.x && p1.y <= mPoint.y && mPoint.y < p2.y;
 		}
 
@@ -83,36 +83,36 @@ namespace Input {
 
 		// 左上座標 p1 、右下座標 p2 の矩形範囲内でマウス左ボタンがクリックされたかどうかを返す
 		bool leftClicked(Vector2<int> p1 = { 0, 0 }, Vector2<int> p2 = { 960, 540 }) const {
-			return isInside(p1, p2) && mMouseL.clicked;
+			return isMouseOver(p1, p2) && mMouseL.clicked;
 		}
 		// 左上座標 p1 、右下座標 p2 の矩形範囲内でマウス左ボタンが押されているかどうかを返す
 		bool leftPressed(Vector2<int> p1 = { 0, 0 }, Vector2<int> p2 = { 960, 540 }) const {
-			return isInside(p1, p2) && mMouseL.pressed;
+			return isMouseOver(p1, p2) && mMouseL.pressed;
 		}
 		// 左上座標 p1 、右下座標 p2 の矩形範囲内でマウス左ボタンが離されたかどうかを返す
 		bool leftReleased(Vector2<int> p1 = { 0, 0 }, Vector2<int> p2 = { 960, 540 }) const {
-			return isInside(p1, p2) && mMouseL.released;
+			return isMouseOver(p1, p2) && mMouseL.released;
 		}
 
 		// 左上座標 p1 、右下座標 p2 の矩形範囲内でマウス右ボタンがクリックされたかどうかを返す
 		bool rightClicked(Vector2<int> p1 = { 0, 0 }, Vector2<int> p2 = { 960, 540 }) const {
-			return isInside(p1, p2) && mMouseR.clicked;
+			return isMouseOver(p1, p2) && mMouseR.clicked;
 		}
 		// 左上座標 p1 、右下座標 p2 の矩形範囲内でマウス右ボタンが押されているかどうかを返す
 		bool rightPressed(Vector2<int> p1 = { 0, 0 }, Vector2<int> p2 = { 960, 540 }) const {
-			return isInside(p1, p2) && mMouseR.pressed;
+			return isMouseOver(p1, p2) && mMouseR.pressed;
 		}
 		// 左上座標 p1 、右下座標 p2 の矩形範囲内でマウス右ボタンが離されたかどうかを返す
 		bool rightReleased(Vector2<int> p1 = { 0, 0 }, Vector2<int> p2 = { 960, 540 }) const {
-			return isInside(p1, p2) && mMouseR.released;
+			return isMouseOver(p1, p2) && mMouseR.released;
 		}
 
 		// マウス左ボタンが何フレーム押されているかを返す
-		int leftPressedDuration(Vector2<int> p1 = { 0, 0 }, Vector2<int> p2 = { 960, 540 }) const {
+		int leftPressedDuration() const {
 			return mMouseL.pressedDuration;
 		}
 		// マウス右ボタンが何フレーム押されているかを返す
-		int rightPressedDuration(Vector2<int> p1 = { 0, 0 }, Vector2<int> p2 = { 960, 540 }) const {
+		int rightPressedDuration() const {
 			return mMouseR.pressedDuration;
 		}
 
