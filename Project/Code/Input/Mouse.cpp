@@ -9,6 +9,7 @@ namespace Input {
 	}
 
 	void Mouse::update() {
+		mPrePoint = mPoint;
 		GetMousePoint(&mPoint.x, &mPoint.y);
 
 		int tmpButton;
@@ -19,6 +20,9 @@ namespace Input {
 		while (GetMouseInputLog2(&tmpButton, &tmpPos.x, &tmpPos.y, &tmpLogType) == 0) {
 			mButtonLog.emplace_back( tmpButton, tmpPos, tmpLogType );
 		}
+
+		mMouseL.update();
+		mMouseR.update();
 		
 
 	}
@@ -38,8 +42,39 @@ namespace Input {
 		return buttonCnt;
 	}
 
+	void Mouse::ButtonState::update() {
+
+		clicked = false;
+		released = false;
+
+		if (pressedDuration > 0) pressedDuration++;
+
+		auto range = [](const Vector2<int> m) ->bool {
+			return 0 <= m.x && m.x < 960 && 0 <= m.y && m.y < 540;
+		};
+
+		int downNum = get().getButtonChangeCount(range, buttonType, MOUSE_INPUT_LOG_DOWN);
+		int upNum = get().getButtonChangeCount(range, buttonType, MOUSE_INPUT_LOG_UP);
+
+		if (downNum > 0) pressedDuration = 1;
+		if (upNum > 0) {
+			if (pressedDuration > 0) {
+				clicked = true;
+			}
+			released = true;
+			pressedDuration = 0;
+		}
+
+		pressed = pressedDuration > 0;
+
+	}
+
 	Vector2<int> Mouse::mPoint;
+	Vector2<int> Mouse::mPrePoint;
 	std::vector<Mouse::ButtonInfo> Mouse::mButtonLog;
+
+	Mouse::ButtonState Mouse::mMouseL(MOUSE_INPUT_LEFT);
+	Mouse::ButtonState Mouse::mMouseR(MOUSE_INPUT_RIGHT);
 
 	Mouse &gMouse = Mouse::get();
 }
