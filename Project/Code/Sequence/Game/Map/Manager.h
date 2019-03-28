@@ -1,5 +1,7 @@
 #pragma once
 #include<vector>
+#include<unordered_map>
+#include"../../../Tool/Vector2.h"
 
 namespace Sequence { namespace Game {
 	class State;
@@ -16,12 +18,19 @@ namespace Map {
 		void update();
 
 		void draw() const;
-		void redraw() const; //各Chipのグラフィックをこのクラスのグラフィックに反映
-		
+
 	private:
+
+		void mRedraw();
+
 		std::vector<std::vector<Chip*>> mChip;
-		int mGrHandle; //マップ全体を描画するグラフィックへのハンドル
-		
+		int mMapChipGrHandle; //Chipを描画してまとめただけのグラフィック
+		int mWholeMapGrHandle; //Chip以外のものもまとめたグラフィック、毎度更新
+
+	public:
+		const auto getWholeMapGrHandle() {
+			return mWholeMapGrHandle;
+		}
 		friend State;
 	};
 }}}

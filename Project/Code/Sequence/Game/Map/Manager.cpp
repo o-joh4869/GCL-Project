@@ -23,37 +23,45 @@ namespace Sequence { namespace Game { namespace Map {
 			}
 		}
 
-		mGrHandle = MakeScreen(32 * width, 32 * hight);
-
-		redraw();
+		mMapChipGrHandle = MakeScreen(32 * width, 32 * hight);
+		mWholeMapGrHandle = MakeScreen(32 * width, 32 * hight);
+		SetDrawScreen(mMapChipGrHandle);
+		for (int i = 0; i < mChip.size(); i++) {
+			for (int j = 0; j < mChip[0].size(); j++) {
+				DrawGraph(i * 32, j * 32, mChip[i][j]->grHandle, FALSE); //mMapChipGrHandleの更新
+			}
+		}
+		SetDrawScreen(mWholeMapGrHandle);
+		DrawGraph(0, 0, mMapChipGrHandle, FALSE); //mMapWholeGrHandleの初期化
+		SetDrawScreen(DX_SCREEN_BACK);
 
 	}
 
 	Manager::~Manager() {
-		DeleteGraph(mGrHandle);
+		DeleteGraph(mMapChipGrHandle);
+		DeleteGraph(mWholeMapGrHandle);
 	}
 
 	void Manager::update() {
-		bool flag = false;
-		for (auto &i : mChip) {
-			for (auto &j : i) {
-				flag = flag || j->update();
-			}
-		}
-		if (flag) redraw();
+		mRedraw();
+
 	}
 
 	void Manager::draw() const {
-		DrawGraph(10, 10, mGrHandle, FALSE); //仮
+		DrawGraph(10, 10, mWholeMapGrHandle, FALSE); //仮
+
 	}
 
-	void Manager::redraw() const {
-		SetDrawScreen(mGrHandle);
+	void Manager::mRedraw() {
+		SetDrawScreen(mMapChipGrHandle);
 		for (int i = 0; i < mChip.size(); i++) {
 			for (int j = 0; j < mChip[0].size(); j++) {
-				DrawGraph(i * 32, j * 32, mChip[i][j]->grHandle, FALSE);
+				if (mChip[i][j]->update())
+					DrawGraph(i * 32, j * 32, mChip[i][j]->grHandle, FALSE); //mMapChipGrHandleの更新
 			}
 		}
+		SetDrawScreen(mWholeMapGrHandle);
+		DrawGraph(0, 0, mMapChipGrHandle, FALSE); //mMapWholeGrHandleの初期化
 		SetDrawScreen(DX_SCREEN_BACK);
 	}
 

@@ -21,6 +21,9 @@ namespace Sequence { namespace Game { namespace Play {
 		mState->map->update();
 		mState->map->draw();
 
+
+		DrawLine(640, 0, 640, 540, 0xffffff);
+
 		return this;
 	}
 }}}
