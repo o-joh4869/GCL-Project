@@ -6,7 +6,9 @@ namespace Game {
 	namespace Map {
 		class Manager;
 	}
-
+	namespace Unit {
+		class Manager;
+	}
 
 	class State {
 	private:
@@ -17,6 +19,7 @@ namespace Game {
 	public:
 		Sequence::State *state; //Sequence::Manager::mState‚Æ“¯‚¶
 		Map::Manager *map;
+		Unit::Manager *unit;
 		friend Manager;
 	};
 }}
