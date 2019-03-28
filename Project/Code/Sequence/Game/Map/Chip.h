@@ -2,6 +2,8 @@
 #include"../../../Tool/Vector2.h"
 #include<DxLib.h>
 
+#include"../../../MyGlobal.h"
+
 namespace Sequence { namespace Game { namespace Map {
 
 	//これを継承して様々なマスを作成する
@@ -10,7 +12,7 @@ namespace Sequence { namespace Game { namespace Map {
 	protected:
 		Chip(bool passFlag = true, const int &passCost = 1) :
 			mPassFlag(passFlag),
-			grHandle(MakeScreen(32, 32, TRUE)),
+			grHandle(MakeScreen(ChipSize.x, ChipSize.y, TRUE)),
 			mPassCost(passCost)
 		{
 		}

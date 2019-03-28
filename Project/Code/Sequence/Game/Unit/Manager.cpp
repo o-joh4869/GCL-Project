@@ -32,7 +32,7 @@ namespace Sequence { namespace Game { namespace Unit {
 		SetDrawScreen(mMapGrHandle);
 
 		for (const auto i : mUnit) {
-			DrawGraph(i->getPos().x * 32, i->getPos().y * 32, i->grHandle, TRUE);
+			DrawGraph(i->getPos().x * Game::Map::ChipSize.x, i->getPos().y * Game::Map::ChipSize.y, i->grHandle, TRUE);
 		}
 
 		SetDrawScreen(DX_SCREEN_BACK);

@@ -1,7 +1,13 @@
 #pragma once
 #include"../../../Tool/Vector2.h"
 #include<DxLib.h>
-namespace Sequence { namespace Game { namespace Unit {
+namespace Sequence { namespace Game {
+
+	namespace Map {
+		extern const Vector2<int> ChipSize;
+	}
+
+namespace Unit {
 
 	class Base {
 	protected:
@@ -9,7 +15,7 @@ namespace Sequence { namespace Game { namespace Unit {
 			mAgility(agility),
 			mBP(BP),
 			mIniBP(BP),
-			grHandle(MakeScreen(32, 32, TRUE))
+			grHandle(MakeScreen(Game::Map::ChipSize.x, Game::Map::ChipSize.y, TRUE))
 		{
 		}
 
