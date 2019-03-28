@@ -31,6 +31,9 @@ namespace Map {
 		const auto getWholeMapGrHandle() {
 			return mWholeMapGrHandle;
 		}
+		const auto &getChip() {
+			return mChip;
+		}
 		friend State;
 	};
 }}}
