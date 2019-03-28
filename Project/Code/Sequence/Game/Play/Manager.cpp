@@ -6,6 +6,7 @@
 #include<DxLib.h>
 
 #include"../Map/Manager.h"
+#include"../Unit/Manager.h"
 
 namespace Sequence { namespace Game { namespace Play {
 
@@ -19,8 +20,9 @@ namespace Sequence { namespace Game { namespace Play {
 	Sequence::Base *Manager::update() {
 
 		mState->map->update();
+		mState->unit->update();
+		mState->unit->draw();
 		mState->map->draw();
-
 
 		DrawLine(640, 0, 640, 540, 0xffffff);
 

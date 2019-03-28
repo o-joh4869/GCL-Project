@@ -3,11 +3,11 @@
 template<class T>
 class Vector2 {
 public:
-	Vector2() :
+	constexpr Vector2() :
 		x((T)0),
 		y((T)0)
 	{}
-	Vector2(T x, T y) :
+	constexpr Vector2(T x, T y) :
 		x(x),
 		y(y)
 	{}
