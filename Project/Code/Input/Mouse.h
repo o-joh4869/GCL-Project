@@ -84,8 +84,11 @@ namespace Input {
 
 		// 左上座標 p1 、右下座標 p2 の矩形範囲内でマウス左ボタンがクリックされたかどうかを返す
 		bool leftClicked(Vector2<int> p1 = { 0, 0 }, Vector2<int> p2 = gWindowSize, bool eraseFlag = true) const {
-			if (mMouseL.clicked) mMouseL.clicked = !eraseFlag;
-			return isMouseOver(p1, p2) && mMouseL.clicked;
+			if (isMouseOver(p1, p2) && mMouseL.clicked) {
+				mMouseL.clicked = !eraseFlag;
+				return true;
+			}
+			return false;
 		}
 		// マウス左ボタンが押されているかどうかを返す
 		bool leftPressed() const {
@@ -97,14 +100,20 @@ namespace Input {
 		}
 		// 左上座標 p1 、右下座標 p2 の矩形範囲内でマウス左ボタンが離されたかどうかを返す
 		bool leftReleased(Vector2<int> p1 = { 0, 0 }, Vector2<int> p2 = gWindowSize, bool eraseFlag = true) const {
-			if (mMouseL.released) mMouseL.released = !eraseFlag;
-			return isMouseOver(p1, p2) && mMouseL.released;
+			if (isMouseOver(p1, p2) && mMouseL.released) {
+				mMouseL.released = !eraseFlag;
+				return true;
+			}
+			return false;
 		}
 
 		// 左上座標 p1 、右下座標 p2 の矩形範囲内でマウス右ボタンがクリックされたかどうかを返す
 		bool rightClicked(Vector2<int> p1 = { 0, 0 }, Vector2<int> p2 = gWindowSize, bool eraseFlag = true) const {
-			if (mMouseR.clicked) mMouseR.clicked = !eraseFlag;
-			return isMouseOver(p1, p2) && mMouseR.clicked;
+			if (isMouseOver(p1, p2) && mMouseR.clicked) {
+				mMouseR.clicked = !eraseFlag;
+				return true;
+			}
+			return false;
 		}
 		// マウス右ボタンが押されているかどうかを返す
 		bool rightPressed() const {
@@ -116,8 +125,11 @@ namespace Input {
 		}
 		// 左上座標 p1 、右下座標 p2 の矩形範囲内でマウス右ボタンが離されたかどうかを返す
 		bool rightReleased(Vector2<int> p1 = { 0, 0 }, Vector2<int> p2 = gWindowSize, bool eraseFlag = true) const {
-			if (mMouseR.clicked) mMouseR.released = !eraseFlag;
-			return isMouseOver(p1, p2) && mMouseR.released;
+			if (isMouseOver(p1, p2) && mMouseR.clicked) {
+				mMouseR.released = !eraseFlag;
+				return true;
+			}
+			return false;
 		}
 
 		// マウス左ボタンが何フレーム押されているかを返す
