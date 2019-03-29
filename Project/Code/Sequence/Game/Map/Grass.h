@@ -8,8 +8,8 @@ namespace Sequence { namespace Game { namespace Map {
 	public:
 		Grass() : Chip() {
 			SetDrawScreen(grHandle);
-			DrawBox(0, 0, 32, 32, 0x00ff00, TRUE);
-			DrawBox(0, 0, 32, 32, 0xff0000, FALSE);
+			DrawBox(0, 0, ChipSize.x, ChipSize.y, 0x00ff00, TRUE);
+			DrawBox(0, 0, ChipSize.x, ChipSize.y, 0xff0000, FALSE);
 			SetDrawScreen(DX_SCREEN_BACK);
 		}
 		virtual bool update() override { return false; }

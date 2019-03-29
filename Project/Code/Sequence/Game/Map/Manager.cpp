@@ -24,12 +24,12 @@ namespace Sequence { namespace Game { namespace Map {
 			}
 		}
 
-		mMapChipGrHandle = MakeScreen(32 * width, 32 * hight);
-		mWholeMapGrHandle = MakeScreen(32 * width, 32 * hight);
+		mMapChipGrHandle = MakeScreen(ChipSize.x * width, ChipSize.y * hight);
+		mWholeMapGrHandle = MakeScreen(ChipSize.x * width, ChipSize.y * hight);
 		SetDrawScreen(mMapChipGrHandle);
 		for (int i = 0; i < mChip.size(); i++) {
 			for (int j = 0; j < mChip[0].size(); j++) {
-				DrawGraph(i * 32, j * 32, mChip[i][j]->grHandle, FALSE); //mMapChipGrHandleの更新
+				DrawGraph(i * ChipSize.x, j * ChipSize.y, mChip[i][j]->grHandle, FALSE); //mMapChipGrHandleの更新
 			}
 		}
 		SetDrawScreen(mWholeMapGrHandle);
@@ -58,7 +58,7 @@ namespace Sequence { namespace Game { namespace Map {
 		for (int i = 0; i < mChip.size(); i++) {
 			for (int j = 0; j < mChip[0].size(); j++) {
 				if (mChip[i][j]->update())
-					DrawGraph(i * 32, j * 32, mChip[i][j]->grHandle, FALSE); //mMapChipGrHandleの更新
+					DrawGraph(i * ChipSize.x, j * ChipSize.y, mChip[i][j]->grHandle, FALSE); //mMapChipGrHandleの更新
 			}
 		}
 		SetDrawScreen(mWholeMapGrHandle);

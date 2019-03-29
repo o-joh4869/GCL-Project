@@ -127,6 +127,10 @@
     <ClCompile Include="Code\Input\Mouse.cpp" />
     <ClCompile Include="Code\Main.cpp" />
     <ClCompile Include="Code\Input\Manager.cpp" />
+    <ClCompile Include="Code\MyGlobal.cpp">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">false</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</ExcludedFromBuild>
+    </ClCompile>
     <ClCompile Include="Code\Sequence\Game\Manager.cpp" />
     <ClCompile Include="Code\Sequence\Game\Map\Manager.cpp" />
     <ClCompile Include="Code\Sequence\Game\Play\Manager.cpp" />
@@ -144,6 +148,7 @@
     <ClInclude Include="Code\Input\Key.h" />
     <ClInclude Include="Code\Input\Manager.h" />
     <ClInclude Include="Code\Input\Mouse.h" />
+    <ClInclude Include="Code\MyGlobal.h" />
     <ClInclude Include="Code\Sequence\Base.h" />
     <ClInclude Include="Code\Sequence\Game\Base.h" />
     <ClInclude Include="Code\Sequence\Game\Manager.h" />
