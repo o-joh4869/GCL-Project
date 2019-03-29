@@ -9,23 +9,20 @@ namespace Sequence { namespace Game { namespace Map {
 	Manager::Manager()
 	{
 
-		//âºÉTÉCÉYê›íË
-		const int width = 30;
-		const int hight = 30;
-		mChip.resize(width);
+		mChip.resize(MapSize.x);
 		for (int i = 0; i < mChip.size(); i++) {
-			mChip[i].resize(hight);
+			mChip[i].resize(MapSize.y);
 		}
 
-		for (int i = 0; i < width; i++) {
-			for (int j = 0; j < hight; j++) {
-				if (i == 0 || j == 0 || i == width - 1 || j == hight - 1) mChip[i][j] = new Wall();
+		for (int i = 0; i < MapSize.x; i++) {
+			for (int j = 0; j < MapSize.y; j++) {
+				if (i == 0 || j == 0 || i == MapSize.x - 1 || j == MapSize.y - 1) mChip[i][j] = new Wall();
 				else mChip[i][j] = new Grass();
 			}
 		}
 
-		mMapChipGrHandle = MakeScreen(ChipSize.x * width, ChipSize.y * hight);
-		mWholeMapGrHandle = MakeScreen(ChipSize.x * width, ChipSize.y * hight);
+		mMapChipGrHandle = MakeScreen(ChipSize.x * MapSize.x, ChipSize.y * MapSize.y);
+		mWholeMapGrHandle = MakeScreen(ChipSize.x * MapSize.x, ChipSize.y * MapSize.y);
 		SetDrawScreen(mMapChipGrHandle);
 		for (int i = 0; i < mChip.size(); i++) {
 			for (int j = 0; j < mChip[0].size(); j++) {
@@ -67,12 +64,12 @@ namespace Sequence { namespace Game { namespace Map {
 	}
 
 	void Manager::mSetMapPos() {
-		if (Input::gMouse.leftPressed({ 0, 0 }, { 640, 540 })) {
+		if (Input::gMouse.leftPressed({ 0, 0 }, gWindowSizeL)) {
 			mMapPos += Input::gMouse.getDelta();
-			if (mMapPos.x < -32 * 10 / 2) mMapPos.x = -32 * 10 / 2;
-			if (mMapPos.x > 640 - 32 * 10 / 2) mMapPos.x = 640 - 32 * 10 / 2;
-			if (mMapPos.y < -32 * 10 / 2) mMapPos.y = -32 * 10 / 2;
-			if (mMapPos.y > 540 - 32 * 10 / 2) mMapPos.y = 540 - 32 * 10 / 2;
+			if (mMapPos.x < gWindowSizeL.x / 2 - MapSize.x * ChipSize.x - ScrollLimit.x) mMapPos.x = gWindowSizeL.x / 2 - MapSize.x * ChipSize.x - ScrollLimit.x;
+			if (mMapPos.x > gWindowSizeL.x / 2 + ScrollLimit.x) mMapPos.x = gWindowSizeL.x / 2 + ScrollLimit.x;
+			if (mMapPos.y < gWindowSizeL.y / 2 - MapSize.y * ChipSize.y - ScrollLimit.y) mMapPos.y = gWindowSizeL.y / 2 - MapSize.y * ChipSize.y - ScrollLimit.y;
+			if (mMapPos.y > gWindowSizeL.y / 2 + ScrollLimit.y) mMapPos.y = gWindowSizeL.y / 2 + ScrollLimit.y;
 		}
 	}
 
