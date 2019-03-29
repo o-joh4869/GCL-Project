@@ -50,7 +50,7 @@ namespace Input {
 		if (pressedDuration > 0) pressedDuration++;
 
 		auto range = [](const Vector2<int> m) ->bool {
-			return 0 <= m.x && m.x < gWindowSize.x && 0 <= m.y && m.y < gWindowSize.y;
+			return true;
 		};
 
 		int downNum = get().getButtonChangeCount(range, buttonType, MOUSE_INPUT_LOG_DOWN);
