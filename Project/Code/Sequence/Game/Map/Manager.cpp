@@ -1,6 +1,7 @@
 #include"Manager.h"
 #include"Grass.h"
 #include"Wall.h"
+#include "../../../Input/Mouse.h"
 #include<DxLib.h>
 
 namespace Sequence { namespace Game { namespace Map {
@@ -9,8 +10,8 @@ namespace Sequence { namespace Game { namespace Map {
 	{
 
 		//âºÉTÉCÉYê›íË
-		const int width = 10;
-		const int hight = 10;
+		const int width = 30;
+		const int hight = 30;
 		mChip.resize(width);
 		for (int i = 0; i < mChip.size(); i++) {
 			mChip[i].resize(hight);
@@ -34,7 +35,6 @@ namespace Sequence { namespace Game { namespace Map {
 		SetDrawScreen(mWholeMapGrHandle);
 		DrawGraph(0, 0, mMapChipGrHandle, FALSE); //mMapWholeGrHandleÇÃèâä˙âª
 		SetDrawScreen(DX_SCREEN_BACK);
-
 	}
 
 	Manager::~Manager() {
@@ -43,12 +43,13 @@ namespace Sequence { namespace Game { namespace Map {
 	}
 
 	void Manager::update() {
+		mSetMapPos();
 		mRedraw();
 
 	}
 
 	void Manager::draw() const {
-		DrawGraph(10, 10, mWholeMapGrHandle, FALSE); //âº
+		DrawGraph(mMapPos.x, mMapPos.y, mWholeMapGrHandle, FALSE); //âº
 
 	}
 
@@ -63,6 +64,16 @@ namespace Sequence { namespace Game { namespace Map {
 		SetDrawScreen(mWholeMapGrHandle);
 		DrawGraph(0, 0, mMapChipGrHandle, FALSE); //mMapWholeGrHandleÇÃèâä˙âª
 		SetDrawScreen(DX_SCREEN_BACK);
+	}
+
+	void Manager::mSetMapPos() {
+		if (Input::gMouse.leftPressed({ 0, 0 }, { 640, 540 })) {
+			mMapPos += Input::gMouse.getDelta();
+			if (mMapPos.x < -32 * 10 / 2) mMapPos.x = -32 * 10 / 2;
+			if (mMapPos.x > 640 - 32 * 10 / 2) mMapPos.x = 640 - 32 * 10 / 2;
+			if (mMapPos.y < -32 * 10 / 2) mMapPos.y = -32 * 10 / 2;
+			if (mMapPos.y > 540 - 32 * 10 / 2) mMapPos.y = 540 - 32 * 10 / 2;
+		}
 	}
 
 }}}
