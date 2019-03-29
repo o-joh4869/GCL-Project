@@ -7,7 +7,7 @@ namespace Sequence { namespace Game { namespace Unit {
 		Sample();
 		virtual ~Sample() = default;
 
-		virtual bool update() override;
+		virtual void update() override;
 
 	};
 }}}
