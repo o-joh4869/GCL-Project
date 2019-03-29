@@ -24,7 +24,7 @@ namespace Sequence { namespace Game { namespace Unit {
 
 	void Manager::update() {
 		for (auto &i : mUnit) {
-			i->update();
+			i->draw();
 		}
 	}
 
@@ -34,6 +34,7 @@ namespace Sequence { namespace Game { namespace Unit {
 		for (const auto i : mUnit) {
 			DrawGraph(i->getPos().x * Game::Map::ChipSize.x, i->getPos().y * Game::Map::ChipSize.y, i->grHandle, TRUE);
 		}
+
 
 		SetDrawScreen(DX_SCREEN_BACK);
 	}
